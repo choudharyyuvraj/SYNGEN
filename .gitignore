@@ -1,0 +1,12 @@
+__pycache__
+data/*
+Saved/*
+model_zoo/*.pth
+auto_*
+static/*
+files/*
+.vscode/*
+Generated/*
+LICENSE
+*.sh
+model_zoo/One-DM-ckpt.pt

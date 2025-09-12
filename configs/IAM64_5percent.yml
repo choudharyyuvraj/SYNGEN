@@ -1,0 +1,35 @@
+MODEL:
+  STYLE_ENCODER_LAYERS: 3
+  NUM_IMGS: 15
+  IN_CHANNELS: 4
+  OUT_CHANNELS: 4
+  NUM_RES_BLOCKS: 1
+  NUM_HEADS: 4
+  EMB_DIM: 512
+SOLVER:
+  BASE_LR: 0.0002  # Slightly higher LR for faster convergence on small data
+  EPOCHS: 200      # Reduced epochs since we have less data
+  WARMUP_ITERS: 500  # Much shorter warmup for 5% data
+  TYPE: AdamW
+  GRAD_L2_CLIP: 5.0
+TRAIN:
+  TYPE: train
+  IMS_PER_BATCH: 32  # Smaller batch size for 5% data and potential CPU training
+  SNAPSHOT_BEGIN: 5   # Start saving earlier
+  SNAPSHOT_ITERS: 20  # Save more frequently
+  VALIDATE_BEGIN: 5   # Start validation earlier
+  VALIDATE_ITERS: 20  # Validate more frequently
+  SEED: 1001
+  IMG_H: 64
+  IMG_W: 64
+TEST:
+  TYPE: test
+  IMS_PER_BATCH: 16  # Smaller test batch
+  IMG_H: 64
+  IMG_W: 64
+DATA_LOADER:
+  NUM_THREADS: 4     # Fewer threads for smaller dataset
+  IAMGE_PATH: ./data/IAM64-new
+  STYLE_PATH: ./data/IAM64-new
+  LAPLACE_PATH: ./data/IAM64_laplace
+OUTPUT_DIR: ./output_5percent  # Separate output directory for 5% training

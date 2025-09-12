@@ -1,0 +1,28 @@
+name: torch13_minimal
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pytorch-cpu
+  - torchvision-cpu
+  - torchaudio
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - pandas
+  - jupyter
+  - notebook
+  - pillow
+  - tqdm
+  - pyyaml
+  - requests
+  - pip
+  - pip:
+    - opencv-python
+    - wandb
+    - transformers
+    - diffusers
+    - einops
+    - omegaconf
