@@ -10,3 +10,5 @@ Generated/*
 LICENSE
 *.sh
 model_zoo/One-DM-ckpt.pt
+# large downloaded weights (see README_frontend.md)
+model_zoo/stable-diffusion-v1-5/

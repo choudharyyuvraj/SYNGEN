@@ -1,0 +1,8 @@
+# Web API (works on its own in demo mode)
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+opencv-python>=4.8
+numpy
+pillow
+pyyaml

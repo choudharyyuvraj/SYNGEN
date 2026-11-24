@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-hand: "Caveat", "Segoe Print", cursive;
+
+  --color-paper: #f6f1e4;
+  --color-paper-2: #efe8d6;
+  --color-card: #fffdf8;
+  --color-ink: #1b2238;
+  --color-ink-soft: #4a5068;
+  --color-muted: #7a7d8c;
+  --color-line: #e2d9c3;
+  --color-navy: #1e2a5a;
+  --color-accent: #3346c8;
+  --color-accent-soft: #e6e9fb;
+  --color-margin: #e0525a;
+}
+
+@layer base {
+  html { background: var(--color-paper); color: var(--color-ink); }
+  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  ::selection { background: #c9d0fa; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 6px; }
+}
+
+@utility card { @apply rounded-2xl border border-line bg-card shadow-[0_1px_0_rgba(27,34,56,0.04),0_8px_24px_-12px_rgba(27,34,56,0.12)]; }
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+@utility btn-primary { @apply btn bg-navy text-paper hover:bg-accent; }
+@utility btn-ghost { @apply btn border border-line bg-card text-ink hover:border-ink-soft/40 hover:bg-paper-2; }
+@utility label { @apply text-xs font-semibold uppercase tracking-[0.12em] text-muted; }
+@utility chip { @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1 text-xs font-medium text-ink-soft; }
+
+@layer components {
+  /* ruled notebook paper */
+  .ruled {
+    background-color: #fffdf6;
+    background-image:
+      linear-gradient(90deg, transparent 47px, rgba(224, 82, 90, 0.45) 47px, rgba(224, 82, 90, 0.45) 49px, transparent 49px),
+      repeating-linear-gradient(180deg, transparent 0 31px, rgba(51, 70, 200, 0.14) 31px 32px);
+  }
+  .dotgrid {
+    background-image: radial-gradient(rgba(27, 34, 56, 0.09) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .pixelated { image-rendering: pixelated; }
+}
+
+input[type="range"] { accent-color: var(--color-accent); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.5s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .rise, .shimmer { animation: none; } }

@@ -1,0 +1,10 @@
+# Everything needed to run the real SYNGEN / One-DM model behind the API
+-r requirements.txt
+torch
+torchvision
+diffusers>=0.25
+huggingface_hub
+safetensors
+einops
+omegaconf
+tqdm
